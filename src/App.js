@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import Ripples from 'react-ripples';
 import './App.css';
 
 function App() {
@@ -7,17 +8,15 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Click on the ripple button to change its label.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Ripples>
+            <button id="Button" onclick="ChangeText()">Rename me!</button>
+        </Ripples>
       </header>
+      <script>
+      { 'function ChangeText() { var btn = document.getElementById("Button"); btn.innerHTML = "You touched me!";}' }
+      </script>
     </div>
   );
 }
