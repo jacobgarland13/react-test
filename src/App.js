@@ -11,14 +11,21 @@ function App() {
           Click on the ripple button to change its label.
         </p>
         <Ripples>
-            <button id="Button" onclick="ChangeText()">Rename me!</button>
+            <button id="Button" onClick={ChangeText}>Rename me!</button>
         </Ripples>
       </header>
-      <script>
-      { 'function ChangeText() { var btn = document.getElementById("Button"); btn.innerHTML = "You touched me!";}' }
-      </script>
     </div>
   );
+}
+
+function ChangeText() {
+  var btn = document.getElementById("Button");
+  var inputString = "";
+  btn.focus();
+  document.addEventListener("keydown", function(event) {
+    inputString += event.key;
+    btn.innerHTML = inputString;
+  });
 }
 
 export default App;
